@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const http = require('http'); // Importar el módulo http
 require('dotenv').config();
+const {connect} = require('mongoose');
 
 const Usuario = require('./src/routes/Usuarios');
 const Aprendiz = require('./src/routes/Aprendices');

@@ -14,7 +14,9 @@ const nodemailer = require("nodemailer");
 const crypto = require("crypto");
 
 const httpUsarios = {
-  // listar----------------------------------------------------------------------------------------------------------
+
+  // listar
+  
   getUsuarios: async (req, res) => {
     try {
       const usuarios = await Usuarios.find();
@@ -27,7 +29,9 @@ const httpUsarios = {
       res.status(400).json({ error });
     }
   },
-  //cear--------------------------------------------------------------------------------------------------------------
+
+  //cear
+
   postUsuario: async (req, res) => {
     try {
       const { Email, Password, Nombre } = req.body;
@@ -43,7 +47,9 @@ const httpUsarios = {
       res.status(400).json({ error });
     }
   },
-  //login--------------------------------------------------------------------------------------------------------------
+
+  //login
+
   postLogin: async (req, res) => {
     const { Email, Password } = req.body;
     try {
@@ -80,7 +86,8 @@ const httpUsarios = {
     }
   },
 
-  //Actualizar-------------------------------------------------------------------------------------------------------
+  //Actualizar
+
   putUsuarioActualizar: async (req, res) => {
     const { id } = req.params;
     try {
@@ -102,7 +109,9 @@ const httpUsarios = {
       res.status(400).json({ error });
     }
   },
-  //Activar-----------------------------------------------------------------------------------------------------------
+
+  //Activar
+
   putUsuarioActivar: async (req, res) => {
     const { id } = req.params;
     try {
@@ -116,7 +125,9 @@ const httpUsarios = {
       res.status(400).json({ error });
     }
   },
-  //Desactivar----------------------------------------------------------------------------------------------------------
+
+  //Desactivar
+
   putUsuarioDesactivar: async (req, res) => {
     const { id } = req.params;
     try {
@@ -141,8 +152,7 @@ const httpUsarios = {
   },
 
 
-  // // Solicitar recuperación de contraseña------------------------------------------------------------------------------------
-
+  // // Solicitar recuperación de contraseña
   // solicitarRecuperacionContrasena : async (req, res) => {
   //   const { Email } = req.body;
   //   try {
@@ -193,7 +203,9 @@ const httpUsarios = {
   //     res.status(500).json({ error: error.message || "Error desconocido" });
   //   }
   // },
-  // // Restablecer contraseña---------------------------------------------------------------------------------------------------------------------
+
+  // // Restablecer contraseña
+  
   // restablecerContrasena : async (req, res) => {
   //   const { token } = req.params;
   //   const { Password } = req.body;

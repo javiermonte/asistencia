@@ -64,7 +64,8 @@ const httpBitacoras = {
         }
     },
 
-    //   listar todo
+    //List todo
+
     getListarTodo: async (req, res) => {
         try {
             const { FechaInicial, FechaFinal } = req.query;
@@ -129,6 +130,7 @@ const httpBitacoras = {
             ]);
 
             // Responder con los resultados de la búsqueda
+
             if (bitacoras.length > 0) {
                 res.json(bitacoras);
             } else {
@@ -140,18 +142,22 @@ const httpBitacoras = {
             res.status(500).json({ error: error.message });
         }
     },
-    //   listar por ficha
+
+    // List por ficha
+
     getListarBitacorasPorFicha: async (req, res) => {
         const { Id_Ficha } = req.params;
         try {
             console.log(`ID de Ficha recibido: ${Id_Ficha}`);
 
             // Verificar si Id_Ficha es un ObjectId válido
+
             if (!mongoose.Types.ObjectId.isValid(Id_Ficha)) {
                 return res.status(400).json({ mensaje: "Id de ficha no válido" });
             }
 
             // Consulta de agregación para buscar bitácoras por Id_Ficha
+
             const result = await Bitacoras.aggregate([
                 {
                     $lookup: {
@@ -182,6 +188,7 @@ const httpBitacoras = {
             ]);
 
             // Verificar si se encontraron resultados
+
             if (result) {
                 res.json(result);
             } else {
@@ -192,7 +199,9 @@ const httpBitacoras = {
             res.status(500).json({ error: error.message });
         }
     },
-    //listar aprendiz
+
+    //List aprendiz
+
     getLitarBitacorasporAprendiz: async (req, res) => {
         const { Id_Aprendiz } = req.params
         try {
@@ -206,7 +215,9 @@ const httpBitacoras = {
 
         }
     },
+
     /// Insertar bitacora
+
     postInsertaBitacora: async (req, res) => {
         try {
             const { documento } = req.body;
@@ -230,7 +241,8 @@ const httpBitacoras = {
         }
     },
 
-    // Editar Bitacora
+    //Edit Bitacora
+
     putModificarBitacora: async (req, res) => {
         const { id } = req.params
         try {

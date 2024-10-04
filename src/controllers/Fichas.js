@@ -6,7 +6,9 @@
 
 
 const Fichas = require("../models/Fichas")
-// listar todo-------------------------------------------------------------------------------------------------------
+
+//List todo
+
 const httpFichas = {
     getListar: async (req, res) => {
         try {
@@ -16,7 +18,9 @@ const httpFichas = {
             res.status(400).json({ error })
         }
     },
-    //crear-------------------------------------------------------------------------------------------------------------
+
+    //crear
+
     postFicha: async (req, res) => {
         
         try {
@@ -28,7 +32,9 @@ const httpFichas = {
             res.status(400).json({ error })
         }
     },
-    //actualizar-----------------------------------------------------------------------------------------------------------
+
+    //actualizar
+
     putFichaActualizar: async (req, res) => {
         const { id } = req.params
         try {
@@ -48,7 +54,9 @@ const httpFichas = {
             res.status(400).json({ error })
         }
     },
-    //Activar-------------------------------------------------------------------------------------------------------------------
+
+    //Activar
+
     putActivarFicha: async (req, res) => {
         const {id} = req.params
         try {
@@ -61,7 +69,10 @@ const httpFichas = {
         } catch (error) {
             res.status(400).json({ error })
         }
-    },//Desactivar-------------------------------------------------------------------------------------------------------------
+    },
+    
+    //Desactivar
+    
     PutDesactivarFicha: async (req, res) => {
          const {id} = req.params
         try {
